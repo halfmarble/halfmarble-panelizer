@@ -260,7 +260,7 @@ class GerberParser(object):
 
     def parse(self, filename):
         self.filename = filename
-        with open(filename, "rU") as fp:
+        with open(filename, "r") as fp:
             data = fp.read()
         return self.parse_raw(data, filename)
 

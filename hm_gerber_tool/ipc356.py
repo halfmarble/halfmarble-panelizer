@@ -163,7 +163,7 @@ class IPCNetlistParser(object):
         return FileSettings(units=self.units, angle_units=self.angle_units)
 
     def parse(self, filename):
-        with open(filename, 'rU') as f:
+        with open(filename, 'r') as f:
             data = f.read()
         return self.parse_raw(data, filename)
 
