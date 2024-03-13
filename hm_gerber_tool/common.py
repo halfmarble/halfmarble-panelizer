@@ -36,7 +36,7 @@ def read(filename):
         CncFile object representing the file, either GerberFile, ExcellonFile,
         or IPCNetlist. Returns None if file is not of the proper type.
     """
-    with open(filename, 'rU') as f:
+    with open(filename, 'r') as f:
         try:
             data = f.read()
             return loads(data, filename)
