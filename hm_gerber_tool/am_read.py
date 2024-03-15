@@ -194,6 +194,7 @@ def read_macro(macro):
                     equation_left_side = n
                 else:
                     instructions.append((OpCode.LOAD, n))
+                    unary_minus_allowed = False
 
             elif c == Token.EQUALS:
                 found_equation_left_side = True
@@ -206,6 +207,7 @@ def read_macro(macro):
                     # decimal or integer disambiguation
                     if scanner.peek() not in '.' or scanner.peek() == Token.EOF:
                         instructions.append((OpCode.PUSH, 0))
+                        unary_minus_allowed = False
 
             elif c in "123456789.":
                 scanner.ungetc()
@@ -217,6 +219,7 @@ def read_macro(macro):
                         unary_minus = False
                         n *= -1
                     instructions.append((OpCode.PUSH, n))
+                    unary_minus_allowed = False
             else:
                 print('   Scanner.read_macro() whitespace or unknown char: {}'.format(c))
                 # whitespace or unknown char
