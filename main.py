@@ -1,3 +1,4 @@
+#!/bin/env python3
 # The MIT License (MIT)
 
 # Copyright 2021,2022 HalfMarble LLC
